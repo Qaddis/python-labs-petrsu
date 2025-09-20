@@ -6,26 +6,38 @@ data = np.loadtxt("./lab4/t4.txt", skiprows=1)
 x = data[:, 0]
 y = data[:, 1:]
 
+means = np.mean(y, axis=1)
+errors = np.std(y, axis=1)
+
 ux = np.unique(x)
 
-ay = []
+mean_vals = []
+errors_vals = []
 
 for val in ux:
-    ind = np.where(x == val)
+    rows = np.where(x == val)
 
-    avg = np.mean(y[ind], axis=0)
+    mean_vals.append(np.mean(y[rows]))
+    errors_vals.append(np.std(y[rows]))
 
-    ay.append(avg)
+mean_vals = np.array(mean_vals)
+errors_vals = np.array(errors_vals)
 
-ay = np.array(ay)
+plt.errorbar(
+    ux,
+    mean_vals,
+    yerr=errors_vals,
+    fmt="o-y",
+    capsize=5,
+    elinewidth=2,
+    ecolor="r",
+    label="Измеренные данные",
+)
 
-for a in range(ay.shape[0]):
-    plt.plot(ux, ay[:, a], marker="o", label=f"Y{a + 1}")
-
-plt.title("График средних значений")
+plt.title("График средних значений с отклонениями")
 plt.xlabel("X")
-plt.ylabel("Ср. Y")
-plt.grid()
+plt.ylabel("Средние значения")
 plt.legend()
+plt.grid()
 
 plt.show()

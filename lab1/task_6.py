@@ -74,7 +74,12 @@ alph = [
 inp = str(input("Введите целое число: "))
 
 if inp.isdigit():
-    for char in inp:
-        print(alph[int(char)], end="")
+    for i in range(len(alph[0].split("\n"))):
+        line = ""
+
+        for char in inp:
+            line += alph[int(char)].split("\n")[i]
+
+        print(line)
 else:
     print("Строка не является числом!")

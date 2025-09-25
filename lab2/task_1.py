@@ -1,10 +1,8 @@
-inp = str(input("Строка: "))
+inp = str(input("Строка: ")).replace(" ", "").lower()
 
 r_inp = inp[::-1]
 
-print(r_inp)
-
-if inp.lower() == r_inp.lower():
+if inp == r_inp:
     print("Палиндром")
 else:
     print("Не палиндром")

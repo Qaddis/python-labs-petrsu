@@ -13,8 +13,8 @@ while counter < 1000000:
 
     counter += 1
 
-for k in nums.keys():
-    print(f"{k} - {nums[k]}")
+for key in sorted([int(k) for k in nums.keys()], reverse=True):
+    print(f"{key} - {nums[str(key)]}")
 
 # Доп. проверка
 print(sum(nums.values()))

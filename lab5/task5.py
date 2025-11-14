@@ -88,9 +88,14 @@ class MainWindow(QMainWindow):
 
     def calc_result(self):
         expr = self.calc_expression.replace(" ", "").replace(",", ".")
-        
-        self.calc_expression = str(eval(expr)).replace(".", ",")
-        
+
+        result = eval(expr)
+
+        if isinstance(result, float) and result.is_integer():
+            result = int(result)
+
+        self.calc_expression = str(result).replace(".", ",")
+
         self.calc_update_display()
 
     def calc_update_display(self):

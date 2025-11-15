@@ -12,7 +12,7 @@ for i in range(size):
         else:
             img[i, j] = int((255 / 2) * (1 - (j / size)))
 
-cv2.imwrite("task1_img.png", img)
+cv2.imwrite("./lab6/task1_img.png", img)
 
 cv2.imshow("Task 1 Lab6 Image:", img)
 cv2.waitKey(0)

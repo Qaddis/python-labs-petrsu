@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread("test_img.png")
+img = cv2.imread("./lab6/test_img.png")
 
 # Увеличение в 1.5 раза
 img = cv2.resize(
@@ -21,7 +21,7 @@ rm = cv2.getRotationMatrix2D(c, 10, 1.0)
 img = cv2.warpAffine(img, rm, (w, h))
 
 # Сохранение и вывод
-cv2.imwrite("task2_img.png", img)
+cv2.imwrite("./lab6/task2_img.png", img)
 cv2.imshow("Image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

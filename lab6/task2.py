@@ -22,6 +22,6 @@ img = cv2.warpAffine(img, rm, (w, h))
 
 # Сохранение и вывод
 cv2.imwrite("./lab6/task2_img.png", img)
-cv2.imshow("Image", img)
+cv2.imshow("Task 2 Lab6 Image:", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
